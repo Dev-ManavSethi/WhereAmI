@@ -1,0 +1,57 @@
+<html>
+    <head>>
+        <title>Where am I?</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <style>
+        #map{
+            height: 100vh;
+            width: 100vw;
+        }
+        </style>
+    </head>
+
+    <body>
+
+            <div id="map"></div>
+
+
+        <script>
+     
+            
+    
+           
+
+          function initMap(){
+
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(loadLocation);
+            } else { 
+              x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+          
+
+          }
+
+          function loadLocation(position){
+
+var location = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+var map = new google.maps.Map(
+document.getElementById('map'), {zoom: 18, center: location});
+
+var marker = new google.maps.Marker({position: location, map: map});
+}
+          
+          
+          </script>
+
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5xBhJkdyhgHShnifbC0EF2redjJaTHdA&callback=initMap">
+    </script>
+
+
+
+    </body>
+</html>
